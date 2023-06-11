@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Div.css' %}"/>
+    <meta charset="UTF-8">
+    <title>Modify task</title>
+</head>
+<body style="margin: 0; background-color: antiquewhite">
+    <div class="RPHeader">
+        <div class="RPPageLayout">
+            <div class="RPCol1"></div>
+            <div class="RPCol2">
+                <div class="DefaultFlexDiv" style="justify-content: center">
+                    <div class="VSpace" style="height: 200px"></div>
+                    <div style="background-color: #ffcf98; width: 100%; padding: 12px; border-radius: 8px; border-style: solid; border-width: 2px; border-color: #ffa63f">
+                        <div class="DefaultFlexDiv" style="justify-content: center">
+                            <h3 style="margin: 0 0 12px 0">
+                                Inserisci i dati
+                            </h3>
+                            <div class="VSpace" style="height: 1px; width: 80%; background-color: #2a2a2a"></div>
+                            <div class="VSpace" style="height: 20px"></div>
+                        </div>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div style="justify-content: space-between; display: flex">
+                                <label for="IDTaskName">
+                                    Nome task
+                                </label>
+                                <input style="width: 50%; border-radius: 4px; border-style: solid; border-width: 1px" type="text" id="IDTaskName" name="NTaskName" placeholder="Inserisci" value="{{ DefaultTaskName | safe }}">
+                            </div>
+                            <div class="VSpace" style="height: 12px"></div>
+                            <div style="justify-content: space-between; display: flex">
+                                <label for="IDTaskDesc">
+                                    Descrizione
+                                </label>
+                                <textarea style="width: 50%; height: 150px; border-radius: 4px; border-style: solid; border-width: 1px; resize: none" id="IDTaskDesc" name="NTaskDesc" placeholder="Inserisci">{{ DefaultTaskDesc | safe }}</textarea>
+                            </div>
+                            <div class="VSpace" style="height: 15px"></div>
+                            <div class="DefaultFlexDiv" style="justify-content: center">
+                                <span style="color: darkred; text-align: center">
+                                    {{ UpdateResult | safe }}
+                                </span>
+                            </div>
+                            <div class="VSpace" style="height: 15px"></div>
+                            <div style="justify-content: center; display: flex">
+                                <input style="margin: 0 6px 0 6px; min-width: 120px" type="submit" name="NSubmit" value="Invia">
+                                <input style="margin: 0 6px 0 6px; min-width: 120px" type="submit" name="NBack" value="Indietro">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="RPCol3"></div>
+        </div>
+    </div>
+</body>
+</html>

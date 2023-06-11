@@ -1,0 +1,185 @@
+
+/* HEADER DIV */
+
+div.Header {
+    position: sticky;
+    height: auto;
+    top:0;
+    left:0;
+    z-index: 1;
+    background-color: #2a2a2a;
+}
+
+
+/* HEADER GRID */
+
+div.HeaderLayout {
+    display: grid;
+    grid-template-areas: "A_HGCol1 A_HGCol2";
+    grid-template-columns: 50% 50%;
+    position: relative;
+    height: 70px;
+    top:0;
+    left:0;
+    z-index: 1;
+    background-color: inherit;
+}
+
+
+/* HEADER GRID -> CELLS */
+
+div.HGCol1 {
+    grid-area: A_HGCol1;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: left;
+}
+
+div.HGCol2 {
+    grid-area: A_HGCol2;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: right;
+}
+
+
+/* RP Grid */
+
+div.RPHeader {
+    position: relative;
+    height: auto;
+    top:0;
+    left:0;
+    z-index: 1;
+}
+
+div.RPPageLayout {
+    display: grid;
+    grid-template-areas: "A_PLCol1 A_PLCol2 A_PLCol3";
+    grid-template-columns: 30% 40% 30%;
+    position: relative;
+    height: auto;
+    top:0;
+    left:0;
+    z-index: 1;
+    background-color: inherit;
+}
+
+div.RPCol1 {
+    grid-area: A_PLCol1;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: left;
+}
+
+div.RPCol2 {
+    grid-area: A_PLCol2;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+div.RPCol3 {
+    grid-area: A_PLCol3;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: right;
+}
+
+div.MainPageLayout {
+    display: grid;
+    grid-template-areas: "A_MPCol1 A_MPCol2 A_MPCol3";
+    grid-template-columns: 10% 80% 10%;
+    position: relative;
+    height: auto;
+    top:0;
+    left:0;
+    z-index: 0;
+    background-color: inherit;
+}
+
+div.MPCol1 {
+    grid-area: A_MPCol1;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: left;
+}
+
+div.MPCol2 {
+    grid-area: A_MPCol2;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: left;
+}
+
+div.MPCol3 {
+    grid-area: A_MPCol3;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: right;
+}
+
+div.TaskViewGrid {
+    display: grid;
+    grid-template-areas: "A_TVCol1 A_TVCol2";
+    grid-template-columns: 70% 30%;
+    position: relative;
+    height: auto;
+    top:0;
+    left:0;
+    z-index: 0;
+    background-color: inherit;
+}
+
+div.TVCol1 {
+    grid-area: A_TVCol1;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: left;
+}
+
+div.TVCol2 {
+    grid-area: A_TVCol2;
+    position: relative;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* MISC */
+
+div.DefaultFlexDiv {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+div.DefaultFlexDiv .IndexSList {
+    width: inherit;
+    background-color: #ffcf98;
+    padding: 16px;
+    margin: 8px 0 8px 0;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffa63f
+}
+
+div.VSpace {
+    width: 100%;
+    display: flex;
+    position: relative;
+}

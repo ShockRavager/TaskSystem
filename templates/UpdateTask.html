@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Div.css' %}"/>
+    <meta charset="UTF-8">
+    <title>Update task</title>
+</head>
+<body style="margin: 0; background-color: antiquewhite">
+     <div class="RPHeader">
+        <div class="RPPageLayout">
+            <div class="RPCol1"></div>
+            <div class="RPCol2">
+                <div class="DefaultFlexDiv" style="justify-content: center">
+                    <div class="VSpace" style="height: 200px"></div>
+                    <div style="background-color: #ffcf98; width: 100%; padding: 12px; border-radius: 8px; border-style: solid; border-width: 2px; border-color: #ffa63f">
+                        <div class="DefaultFlexDiv" style="justify-content: center">
+                            <h3 style="margin: 0 0 12px 0">
+                                Aggiorna o aggiungi obiettivi
+                            </h3>
+                            <div class="VSpace" style="height: 1px; width: 80%; background-color: #2a2a2a"></div>
+                            <div class="VSpace" style="height: 20px"></div>
+                        </div>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {% for GoalValue in GoalList %}
+                                <div class="VSpace" style="height: 30px"></div>
+                                <div class="DefaultFlexDiv" style="justify-content: space-between">
+                                    <h4 style="margin-top: 4px; margin-bottom: 4px">
+                                        Obiettivo #{{ forloop.counter }}
+                                    </h4>
+                                    <input type="submit" id="IDRemoveGoal{{ forloop.counter }}" name="NRemoveGoal{{ forloop.counter }}" value="Elimina">
+                                </div>
+                                <div class="VSpace" style="height: 12px"></div>
+                                <div class="DefaultFlexDiv" style="justify-content: space-between">
+                                    <label for="IDGoalTitle{{ forloop.counter }}">
+                                        Titolo
+                                    </label>
+                                    <input style="width: 50%;" type="text" id="IDGoalTitle{{ forloop.counter }}" name="NGoalTitle{{ forloop.counter }}" value="{{ GoalValue.0 }}">
+                                </div>
+                                <div class="VSpace" style="height: 6px"></div>
+                                <div class="DefaultFlexDiv" style="justify-content: space-between">
+                                    <label for="IDGoalIndex{{ forloop.counter }}">
+                                        Indice attuale
+                                    </label>
+                                    <input style="width: 50%;" type="number" id="IDGoalIndex{{ forloop.counter }}" name="NGoalIndex{{ forloop.counter }}" value="{{ GoalValue.1 }}">
+                                </div>
+                                <div class="VSpace" style="height: 6px"></div>
+                                <div class="DefaultFlexDiv" style="justify-content: space-between">
+                                    <label for="IDGoalMaxID{{ forloop.counter }}">
+                                        Indice massimo
+                                    </label>
+                                    <input style="width: 50%;" type="number" id="IDGoalMaxID{{ forloop.counter }}" name="NGoalMaxID{{ forloop.counter }}" value="{{ GoalValue.2 }}">
+                                </div>
+                            {% endfor %}
+                            <div class="VSpace" style="height: 30px"></div>
+                            <span style="color: darkred; text-align: center">
+                                {{ UpdateResult | safe }}
+                            </span>
+                            <div class="VSpace" style="height: 30px"></div>
+                            <div style="justify-content: center; display: flex">
+                                <input style="margin: 0 6px 0 6px; min-width: 120px" type="submit" name="NAddGoal" value="Aggiungi">
+                                <input style="margin: 0 6px 0 6px; min-width: 120px" type="submit" name="NSubmit" value="Invia">
+                                <input style="margin: 0 6px 0 6px; min-width: 120px" type="submit" name="NBack" value="Indietro">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="RPCol3"></div>
+        </div>
+    </div>
+<div class="VSpace" style="height: 300px"></div>
+</body>
+</html>

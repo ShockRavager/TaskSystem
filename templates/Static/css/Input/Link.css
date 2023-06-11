@@ -1,0 +1,43 @@
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+a:active {
+    color: white;
+    text-decoration: none;
+}
+
+a.DefaultLinkButton {
+    display: flex;
+    min-width: 140px;
+    min-height: 50%;
+    height: 50%;
+    top: 50%;
+    transform: translateY(50%);
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #c4c4c4;
+    border-style: solid;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(65, 134, 113, 0%);
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}

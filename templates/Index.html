@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Form.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Div.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Input/Link.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/Input/Button.css' %}"/>
+    <script src="{% static "js/Global.js" %}"></script>
+    <meta charset="UTF-8">
+    <title>Task System</title>
+</head>
+<body style="background-color: antiquewhite; margin: 0; padding: 0">
+    <div class="Header">
+        <div class="HeaderLayout">
+            <div class="HGCol1">
+                <h1 style="text-align: left; color: white; font-size: 30px; margin-left: 25px">
+                    Task system
+                </h1>
+            </div>
+            <div class="HGCol2">
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">
+                    <button class="IndexRightCorner" style="margin-right: 20px">
+                        Esci
+                    </button>
+                </a>
+                <a href="RemoveAccount/">
+                    <button class="IndexRightCorner" style="margin-right: 20px">
+                        Elimina account
+                    </button>
+                </a>
+                {% else %}
+                <a href="SignIn/">
+                    <button class="IndexRightCorner" style="margin-right: 20px">
+                        Accedi
+                    </button>
+                </a>
+                <a href="SignUp/">
+                    <button class="IndexRightCorner" style="margin-right: 20px">
+                        Registrati
+                    </button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="VSpace" style="height: 60px"></div>
+    <div style="position:relative; height: auto">
+        <div class="MainPageLayout">
+            <div class="MPCol1"></div>
+            <div class="MPCol2">
+                <div class="DefaultFlexDiv">
+                    <h1 style="margin: 0 0 6px 0;">
+                        Crea e aggiorna i tuoi obiettivi
+                    </h1>
+                    <div class="VSpace" style="height: 1px; background-color: #2a2a2a"></div>
+                    <div class="VSpace" style="height: 20px"></div>
+                    {% if user.is_authenticated %}
+                        {% include "Include/IndexIn.html" %}
+                    {% else %}
+                        {% include "Include/IndexOut.html" %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="MPCol3"></div>
+        </div>
+    </div>
+    <div class="VSpace" style="height: 300px"></div>
+</body>
+</html>
