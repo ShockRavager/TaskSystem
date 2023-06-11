@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=73jm7n*v1p1kl74!yt^9jl)-51u&$7ouht(mx5bgx#k(8_2v5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 CSRF_TRUSTED_ORIGINS = ["https://djangorailway-production.up.railway.app"]
 
 # Application definition
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TaskSystem.wsgi.application'
+WSGI_APPLICATION = 'TaskSystem.wsgi.app'
 
 
 # Database
