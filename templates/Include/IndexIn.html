@@ -4,89 +4,87 @@
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
-<body>
-    <div class="DefaultFlexDiv">
-        <span style="font-size: 18px">
-            Bentornato {{ InUser | safe }}
-        </span>
-    </div>
-    <div class="VSpace" style="height: 40px"></div>
-    <div class="DefaultFlexDiv">
-        <h3 style="font-size: 20px; margin: 0">
-            La tua lista di task
-        </h3>
-    </div>
-    <div class="VSpace" style="height: 20px"></div>
-    <div class="DefaultFlexDiv">
-        {% for TaskValue in TaskList %}
-        <div class="IndexSList" style="width: 70%;">
-            <div class="TaskViewGrid">
-                <div class="TVCol1">
+<div class="DefaultFlexDiv">
+    <span style="font-size: 18px">
+        Bentornato {{ InUser | safe }}
+    </span>
+</div>
+<div class="VSpace" style="height: 40px"></div>
+<div class="DefaultFlexDiv">
+    <h3 style="font-size: 20px; margin: 0">
+        La tua lista di task
+    </h3>
+</div>
+<div class="VSpace" style="height: 20px"></div>
+<div class="DefaultFlexDiv">
+    {% for TaskValue in TaskList %}
+    <div class="IndexSList" style="width: 70%;">
+        <div class="TaskViewGrid">
+            <div class="TVCol1">
+                <div class="DefaultFlexDiv">
                     <div class="DefaultFlexDiv">
-                        <div class="DefaultFlexDiv">
-                            <h2 style="margin: 0">
-                                {{ TaskValue.0 }}
-                            </h2>
-                        </div>
-                        <div class="VSpace" style="height: 20px"></div>
-                        <div class="DefaultFlexDiv">
-                            <span>
-                                {{ TaskValue.1 }}
-                            </span>
-                        </div>
-                        <div class="VSpace" style="height: 8px"></div>
-                        <div class="VSpace" style="height: 1px; background-color: #2a2a2a"></div>
-                        <div class="VSpace" style="height: 10px"></div>
-                        {% for GoalValue in TaskValue.2 %}
-                            <span style="margin-left: 6px">
-                                {% if GoalValue.CStatusID < GoalValue.EStatusID %}
-                                &#9873
-                                {% else %}
-                                &#10003
-                                {% endif %}
-                                {{ GoalValue.Title }} [{{ GoalValue.CStatusID }}/{{ GoalValue.EStatusID }}]
-                            </span>
-                            <div class="VSpace" style="height: 6px"></div>
-                        {% endfor %}
+                        <h2 style="margin: 0">
+                            {{ TaskValue.0 }}
+                        </h2>
                     </div>
-                </div>
-                <div class="TVCol2">
+                    <div class="VSpace" style="height: 20px"></div>
                     <div class="DefaultFlexDiv">
-                        <div class="DefaultFlexDiv" style="justify-content: right">
-                            <a href="ModifyTask/{{ TaskValue.0 }}">
-                                <button style="margin: 6px 0 6px 0; min-width: 120px" id="IDModify_{{ TaskValue.0 }}" name="NModify_{{ TaskValue.0 }}">Modifica</button>
-                            </a>
-                            <a href="UpdateTask/{{ TaskValue.0 }}">
-                                <button style="margin: 6px 0 6px 0; min-width: 120px" id="IDUpdate_{{ TaskValue.0 }}" name="NUpdate_{{ TaskValue.0 }}">Aggiorna</button>
-                            </a>
-                            <form action="" method="post" name="NTaskItemForm_{{ TaskValue.0 }}">
-                                {% csrf_token %}
-                                <input style="margin: 6px 0 6px 0; min-width: 120px" type="submit" id="IDDelete_{{ TaskValue.0 }}" name="NDelete_{{ TaskValue.0 }}" value="Elimina">
-                            </form>
-                        </div>
+                        <span>
+                            {{ TaskValue.1 }}
+                        </span>
+                    </div>
+                    <div class="VSpace" style="height: 8px"></div>
+                    <div class="VSpace" style="height: 1px; background-color: #2a2a2a"></div>
+                    <div class="VSpace" style="height: 10px"></div>
+                    {% for GoalValue in TaskValue.2 %}
+                        <span style="margin-left: 6px">
+                            {% if GoalValue.CStatusID < GoalValue.EStatusID %}
+                            &#9873
+                            {% else %}
+                            &#10003
+                            {% endif %}
+                            {{ GoalValue.Title }} [{{ GoalValue.CStatusID }}/{{ GoalValue.EStatusID }}]
+                        </span>
+                        <div class="VSpace" style="height: 6px"></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="TVCol2">
+                <div class="DefaultFlexDiv">
+                    <div class="DefaultFlexDiv" style="justify-content: right">
+                        <a href="ModifyTask/{{ TaskValue.0 }}">
+                            <button style="margin: 6px 0 6px 0; min-width: 120px" id="IDModify_{{ TaskValue.0 }}" name="NModify_{{ TaskValue.0 }}">Modifica</button>
+                        </a>
+                        <a href="UpdateTask/{{ TaskValue.0 }}">
+                            <button style="margin: 6px 0 6px 0; min-width: 120px" id="IDUpdate_{{ TaskValue.0 }}" name="NUpdate_{{ TaskValue.0 }}">Aggiorna</button>
+                        </a>
+                        <form action="" method="post" name="NTaskItemForm_{{ TaskValue.0 }}">
+                            {% csrf_token %}
+                            <input style="margin: 6px 0 6px 0; min-width: 120px" type="submit" id="IDDelete_{{ TaskValue.0 }}" name="NDelete_{{ TaskValue.0 }}" value="Elimina">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="VSpace" style="height: 16px"></div>
-        {% endfor %}
     </div>
+    <div class="VSpace" style="height: 16px"></div>
+    {% endfor %}
+</div>
+<div class="DefaultFlexDiv">
     <div class="DefaultFlexDiv">
+        <div class="VSpace" style="height: 24px"></div>
         <div class="DefaultFlexDiv">
-            <div class="VSpace" style="height: 24px"></div>
-            <div class="DefaultFlexDiv">
-                <a href="CreateTask/">
-                    <button style="min-width: 150px; margin-right: 12px">
-                        Aggiungi task
-                    </button>
-                </a>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <input style="min-width: 150px" type="submit" id="IDRemoveCompleted" name="NRemoveCompleted" value="Elimina completate">
-                </form>
-            </div>
-            <div class="VSpace" style="height: 20px"></div>
+            <a href="CreateTask/">
+                <button style="min-width: 150px; margin-right: 12px">
+                    Aggiungi task
+                </button>
+            </a>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input style="min-width: 150px" type="submit" id="IDRemoveCompleted" name="NRemoveCompleted" value="Elimina completate">
+            </form>
         </div>
+        <div class="VSpace" style="height: 20px"></div>
     </div>
-</body>
+</div>
 </html>
